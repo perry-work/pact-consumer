@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   postgres:
     image: postgres
@@ -12,7 +10,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
 
-  broker_app:
+  pact:
     image: pactfoundation/pact-broker
     links:
       - postgres
@@ -34,5 +32,4 @@ services:
       - 50003:50000
     container_name: my-jenkins
     volumes:
-      - ~/jenkins_data:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/jenkins_home_comp:/var/jenkins_home
